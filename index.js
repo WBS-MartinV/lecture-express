@@ -1,4 +1,4 @@
-const http = require("http");
+// const http = require("http");
 const express = require("express");
 
 const app = express();
@@ -12,7 +12,9 @@ app.get("/", function (req, res) {
     });
 });
 
-app.get("/something", function (req, res) {
+app.get("/something/:parameter", function (req, res) {
+    // http://localhost:5000/something/else?with=Query
+    console.log(req.path, req.query, req.params);
     res.send("Something else");
 });
 
